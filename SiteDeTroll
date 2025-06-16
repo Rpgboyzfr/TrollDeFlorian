@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise ?</title>
+  <style>
+    @keyframes clignote {
+      0% { color: red; background: black; }
+      50% { color: yellow; background: purple; }
+      100% { color: red; background: black; }
+    }
+
+    @keyframes shake {
+      0% { transform: translate(1px, 1px); }
+      25% { transform: translate(-1px, -2px); }
+      50% { transform: translate(-3px, 0px); }
+      75% { transform: translate(2px, 2px); }
+      100% { transform: translate(1px, -1px); }
+    }
+
+    body {
+      background-color: black;
+      color: lime;
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      margin-top: 5%;
+      animation: clignote 2s infinite;
+    }
+
+    h1 {
+      font-size: 2em;
+      animation: shake 0.3s infinite;
+    }
+
+    img {
+      width: 300px;
+      border: 5px solid white;
+      box-shadow: 0 0 30px red;
+      margin: 20px;
+    }
+  </    .gif-Mario_Dance {
+      position: absolute;
+      top: 70%;
+      width: 150px;
+      animation: gaucheDroite 6s linear infinite;
+    }
+  
+  </style>
+</head>
+<body>
+
+  <h1>Ha ha ha tu t'es fait avoir petit nain...</h1>
+  <img src="Oops you got trolled by Me.Jpg" alt="Image troll">
+  <p>Tu est piégé dans une boucle amusante.</p>
+
+  <!-- Son invisible qui tourne en boucle -->
+  <audio id="audioTroll" src="You are Stupid.mp3" autoplay loop></audio>
+
+  <script>
+    // Pour certains navigateurs : déclenche le son après interaction
+    document.body.addEventListener('click', function () {
+      const audio = document.getElementById('audioTroll');
+      audio.play().catch(() => {
+        console.log(\"Lecture automatique bloquée.\");
+      });
+    });
+  </script>
+</body>
+</html>
+
+<audio id="trollSound" src="You are Stupid.mp3" autoplay loop></audio>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("trollSound");
+
+    // Essaie de jouer le son dès que possible
+    audio.play().catch(() => {
+      console.log("Autoplay bloqué. En attente d’un clic…");
+    });
+
+    // Forcer la lecture au clic
+    document.body.addEventListener("click", () => {
+      audio.play().catch(() => {
+        console.log("Toujours bloqué, essaie un autre clic !");
+      });
+    });
+  });
+</script>
